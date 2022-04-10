@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import VisualizationBar from "./components/VisualizationBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <VisualizationBar data={[
+                {"key": "Java", "value": 20},
+                {"key": "Kotlin", "value": 15},
+                {"key": "Python", "value": 13},
+                {"key": "Golang", "value": 12},
+                {"key": "Rust", "value": 4},
+                {"key": "Clojure", "value": 2},
+                {"key": "Erlang", "value": 1}
+            ]} yAxisFormat={(d) => d} leftAxisTicks={10} xAxisLabel={"Language"} yAxisLabel={"No. of Projects"}/>
+        </div>
+    );
 }
 
 export default App;
