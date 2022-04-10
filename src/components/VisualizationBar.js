@@ -47,6 +47,11 @@ class VisualizationBar extends Component {
             .text(this.yAxisLabel);
 
         g.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", `translate(0, ${yAxisHeight})`)
+            .call(xAxis);
+
+        g.append("g")
             .attr("class", "y-axis")
             .call(yAxis);
 
@@ -60,13 +65,6 @@ class VisualizationBar extends Component {
             .attr("width", x.bandwidth)
             .attr("height", b => y(0) - y(b.value))
             .attr("fill", b => this.color(b.value));
-
-        g.append("g")
-            .attr("class", "x-axis")
-            .attr("transform", `translate(0, ${yAxisHeight})`)
-            .call(xAxis);
-
-        g.selectAll(".x-axis text").attr("x", -5).attr("y", 10)
     }
 
     render() {
